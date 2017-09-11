@@ -1,0 +1,155 @@
+<div class="row col-md-10 col-md-offset-1">
+
+
+	<div class="" role="tabpanel" data-example-id="togglable-tabs">
+		<ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+
+			<li role="presentation" class="active"><a href="#tab_content11"
+				id="home-tabb" role="tab" data-toggle="tab" aria-controls="home"
+				aria-expanded="true">Nouveau Fournisseur</a></li>
+			<li role="presentation" class=""><a href="#tab_content22"
+				role="tab" id="profile-tabb" data-toggle="tab"
+				aria-controls="profile" aria-expanded="false">List Fournisseurs</a></li>
+		</ul>
+
+		<div id="myTabContent2" class="tab-content">
+			<div role="tabpanel" class="tab-pane fade active in"
+				id="tab_content11" aria-labelledby="home-tab">
+
+
+				<div class="col-md-8 col-md-offset-2 navbarSpacer">
+
+
+					<form>
+						<div class="form-group">
+							<label for="email">Matricule</label> <input type="text"
+								class="form-control" ng-model="fournisseur2Persist.matricule">
+						</div>
+						<div class="form-group">
+							<label for="email">Nom</label> <input type="text"
+								class="form-control" ng-model="fournisseur2Persist.nom">
+						</div>
+
+						<div class="form-group">
+							<label for="email">Email</label> <input type="text"
+								class="form-control" ng-model="fournisseur2Persist.gmail">
+						</div>
+						<div class="form-group">
+							<label for="email">Telephone</label> <input type="number"
+								class="form-control" ng-model="fournisseur2Persist.tel">
+						</div>
+						<div class="form-group">
+							<label for="pwd">Adresse</label>
+							<textarea class="form-control" ng-model="fournisseur2Persist.adresse"></textarea>
+						</div>
+						<button type="submit"
+							class="btn btn-info col-md-6 col-md-offset-3"
+							ng-click="addFournisseur()">
+							Valider<span class="glyphicon glyphicon-check"></span>
+						</button>
+					</form>
+
+				</div>
+
+
+
+
+			</div>
+
+			<div role="tabpanel" class="tab-pane fade" id="tab_content22"
+				aria-labelledby="profile-tab">
+
+
+				<div class="col-md-12 navbarSpacer">
+					<fieldset>
+						<legend>Recherche Fournisseur </legend>
+						<form>
+							<div class="row col-md-12">
+
+
+								<div class="form-group col-md-2">
+									<label for="matricule">Matricule</label> <input type="text"
+										class="form-control" ng-model="fournisseur2Search.matricule">
+								</div>
+								<div class="form-group col-md-4">
+									<label for="nom">Nom</label> <input type="text"
+										class="form-control" ng-model="fournisseur2Search.nom">
+								</div>
+
+								<div class="form-group col-md-3">
+									<label for="tel">Telephone</label> <input type="number"
+										class="form-control" ng-model="fournisseur2Search.tel">
+								</div>
+								<div class="form-group col-md-3">
+									<label></label>
+									<button ng-click="searchFournisseurs()"
+										class="form-control  btn btn-info">
+										Recherche <span class="glyphicon glyphicon-search"></span>
+									</button>
+								</div>
+							</div>
+
+
+						</form>
+					</fieldset>
+				</div>
+
+
+
+				<div class="col-md-12 navbarSpacer table-responsive">
+
+					<div>
+						<fieldset class="info">
+							<legend>List Fournisseurs</legend>
+							<table class="table table-hover ">
+								<thead>
+									<tr class="active">
+										<th>Matricule</th>
+										<th>Nom</th>
+										<th>Email</th>
+										<th>Telephone</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody ng-repeat="f in fournisseurs">
+									<tr>
+										<td>{{ f.matricule }}</td>
+										<td>{{ f.nom }}</td>
+										<td>{{ f.gmail }}</td>
+										<td>{{ f.tel }}</td>
+										<td>
+											<button ng-click="prepareEditFournisseur(f)" data-toggle="modal" data-target="#contactClient"
+												type="button" class="btn btn-outline-danger btn-sm">
+												Modifier <span class="glyphicon glyphicon-edit"></span>
+											</button>
+											<button ng-click="deleteFournisseur(f.matricule)" type="button"
+												class="btn btn-outline-danger btn-sm">
+												Supprimer <span class="glyphicon glyphicon-trash"></span>
+											</button>
+											<button type="button"
+												class="btn btn-outline-danger btn-sm">
+												Contacter <span class="glyphicon glyphicon-contact"></span>
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+
+
+						</fieldset>
+					</div>
+
+				</div>
+
+
+
+			</div>
+
+		</div>
+	</div>
+
+
+	
+</div>
+
+
